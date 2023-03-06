@@ -183,6 +183,35 @@ describe(dat) %>% flextable()
 describe(dat_c) %>% flextable()
 
 
+#######################################################
+#### REPLACING 0's WITH DIFFERENT CATEGORICAL VALUE
+###################################################
+
+
+
+
+
+
+count(df, vars = TotalBsmtSF)
+#replace 0's with NAN, replace others too
+df$TotalBsmtSF[df$TotalBsmtSF == 0] <- 4
+
+
+install.packages("polycor")
+library(polycor)
+tetrachoric(df)
+
+#install.packages("polycor") for ordical catergorical cor test
+library(polycor)
+polychor(ExterQual, ExterCond)
+
+#install.packages("rcompanion") For cardinal categorical cor test
+library(rcompanion)
+cramerV(Condition1, Condition2)
+
+
+
+
 
 
 
