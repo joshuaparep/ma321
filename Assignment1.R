@@ -26,7 +26,7 @@ introduce(df) #Get more detail about row, columns and NAs
 ##check duplicate
 duplicated(df)
 df[duplicated(ddf),]
-# CHeck unique values in var
+# Check unique values in var
 sapply(df, function(x) length(unique(x)))
 
 ### Missing Value Analysis - check NAs
@@ -54,6 +54,8 @@ aggr_plot <- aggr(df, col=c('navyblue','red'),
                   gap=3,
                   ylab=c("Histogram of Missing data","Pattern"))
 
+#Replace the missing categorical variables with n/a as they imply that a house/propert has a missing trait.       
+df[, !(names(df) %in% c("LotFrontage", "MasVnrArea"))][is.na(df[, !(names(df) %in% c("LotFrontage", "MasVnrArea"))])] <- "no"
 
 ############## FACTOR VARIABLEs - BOTHE CAT & NUM ##########################################
 #comppleted_imp_df[] <- lapply(comppleted_imp_df, factor)
